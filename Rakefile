@@ -36,13 +36,15 @@ task :ensure_docker_running do
   system('docker info') || fail('docker is not running on your host')
 end
 
+task setup: %w(ensure_docker_running link)
+
 desc 'Build both repos'
-task build: %w(ensure_docker_running link) do
+task build: :setup do
   system('fig build') || fail('Unable to build repos')
 end
 
 desc 'Run the server'
-task :up do
+task up: :setup do
   puts "Please hit http://#{`boot2docker ip`.chomp}:1337 in your browser when the build completes"
   system('fig up') || fail('Unable to start fig')
 end
