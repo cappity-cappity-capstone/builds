@@ -8,6 +8,7 @@ Here's a quick guide on getting set up:
 * Install [`boot2docker`](https://docs.docker.com/installation/mac/) and ensure it's running
 * `bundle install` in this directory
 * `bundle exec rake up` Will start and build your server
-* Hit `http://$boot2docker_ip:1337/` in your browser
+* Get your boot2docker ip via `$ boot2docker ip`
+* Hit the boot2docker ip on port 1337 in your browser
 
 To see all of the possible commands, run `bundle exec rake -T`.
