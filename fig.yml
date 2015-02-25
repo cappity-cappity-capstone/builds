@@ -1,8 +1,0 @@
-backend:
-  build: ./backend/
-ui:
-  build: ./ui/
-  links:
-    - backend
-  ports:
-    - 1337:1337

@@ -1,0 +1,13 @@
+backend:
+  image: backend
+  environment:
+    APP_ENV: production
+    RACK_ENV: production
+  volumes:
+    - 'volume:/opt/cappy/backend/db/host'
+backend_nginx:
+  image: backend-nginx
+  links:
+    - backend
+  ports:
+    - '4567:80'
