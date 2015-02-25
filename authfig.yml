@@ -1,0 +1,13 @@
+auth:
+  image: auth
+  environment:
+    APP_ENV: production
+    RACK_ENV: production
+  volumes:
+    - 'constants:/opt/cappitycappitycapstone'
+ui:
+  image: ui
+  links:
+    - auth
+  ports:
+    - 1337:1337
