@@ -1,13 +1,38 @@
-backend:
+redis:
+  image: redis
+web:
   image: backend
+  links:
+    - 'redis:redis'
   environment:
     APP_ENV: production
     RACK_ENV: production
+    REDIS_HOST: redis
   volumes:
     - 'volume:/opt/cappy/backend/db/host'
-backend_nginx:
+resque:
+  image: backend
+  links:
+    - 'redis:redis'
+  environment:
+    APP_ENV: production
+    RACK_ENV: production
+    REDIS_HOST: redis
+  volumes:
+    - 'volume:/opt/cappy/backend/db/host'
+clockwork:
+  image: backend
+  links:
+    - 'redis:redis'
+  environment:
+    APP_ENV: production
+    RACK_ENV: production
+    REDIS_HOST: redis
+  volumes:
+    - 'volume:/opt/cappy/backend/db/host'
+backendnginx:
   image: backend-nginx
   links:
-    - backend
+    - 'web:backend'
   ports:
     - '4567:80'
