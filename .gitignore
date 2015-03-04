@@ -4,3 +4,5 @@ backend
 backend-nginx
 ui
 auth
+*.tar
+*.tar.gz
