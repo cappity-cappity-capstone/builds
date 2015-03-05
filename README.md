@@ -90,7 +90,8 @@ Run the server with `gulp`; it should open a window in your default browser auto
 ## Auth
 
 #### Installing the Auth Dependencies
-1. Install Ruby >= 2.1.5, ruby-gems, bundler, gems
+1. Install MySQL
+2. Install Ruby >= 2.1.5, ruby-gems, bundler, gems
 
 	```
 	git clone git://github.com/sstephenson/rbenv.git ~/.rbenv
