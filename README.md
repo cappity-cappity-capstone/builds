@@ -89,7 +89,7 @@ Run the server with `gulp`; it should open a window in your default browser auto
 
 ## Auth
 
-### Installing the Auth Dependencies
+#### Installing the Auth Dependencies
 1. Install Ruby >= 2.1.5, ruby-gems, bundler, gems
 
 	```
@@ -100,8 +100,28 @@ Run the server with `gulp`; it should open a window in your default browser auto
 	gem install bundler
 	bundle install
 	```
+#### Create DB
+```
+bundle exec rake db:create
+bundle exec rake db:migrate
+```
 
-### Running Auth
+#### Create a test user
+
+```
+curl --verbose \
+       --request POST \
+       --data @- \
+       http://localhost:4567/auth/users/ <<EOF
+{
+  "name": "Jonny",
+  "email": "jonny@gmail.com",
+  "password": "trustno1"
+}
+EOF
+```
+
+#### Running Auth
 
 Run Webserver
 
